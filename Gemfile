@@ -10,6 +10,7 @@ gem 'turbolinks'
 gem 'bcrypt', '~> 3.1.7'
 gem 'bootstrap-sass'
 gem 'devise'
+gem 'faker'
 
 group :development do
   gem 'better_errors'
@@ -25,4 +26,5 @@ end
 group :test do
   gem 'shoulda-matchers'
   gem 'capybara'
+  gem 'factory_girl_rails'
 end
