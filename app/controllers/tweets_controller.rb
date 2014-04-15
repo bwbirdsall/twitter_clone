@@ -11,6 +11,7 @@ class TweetsController < ApplicationController
   def create
     @tweet = Tweet.new(tweet_params)
     if @tweet.save
+      @tweet.mentions
       redirect_to root_url, notice: "You have tweeted! Hooray!"
     else
       render "new"
@@ -28,6 +29,6 @@ class TweetsController < ApplicationController
   end
 
   def tweet_params
-    params.require(:tweet).permit(:content)
+    params.require(:tweet).permit(:content, :user_id)
   end
 end

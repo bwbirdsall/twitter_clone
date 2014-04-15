@@ -1,0 +1,16 @@
+<div class="form_wrapper">
+
+  <%= form_for @tweet do |f| %>
+
+    <div class="field form-group">
+      <%= f.hidden_field :user_id, value: current_user.id %>
+    </div>
+
+    <div class="field form-group">
+      <%= f.label :content %><br />
+      <%= f.text_field :content %> <br />
+    </div>
+
+    <%= f.submit "Pseudo-Tweet It!", class: "btn btn-success" %>
+  <% end %>
+</div>

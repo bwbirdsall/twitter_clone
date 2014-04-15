@@ -11,4 +11,8 @@ class User < ActiveRecord::Base
   def send_signup_confirmation
     UserMailer.signup_confirmation(self)
   end
+
+  def send_mention_email(tweeter)
+    UserMailer.mention_email(self, tweeter)
+  end
 end

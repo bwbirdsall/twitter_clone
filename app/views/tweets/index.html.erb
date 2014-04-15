@@ -2,6 +2,8 @@
 
 <ul>
   <% @tweets.each do |tweet| %>
-    <li><%= tweet.content %></li>
+    <li>@<%= tweet.user.handle %> tweeted: <%= tweet.content %></li>
   <% end %>
 </ul>
+
+<%= link_to "JUST POST!", new_tweet_path, class: "btn btn-info" %>

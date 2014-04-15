@@ -1,0 +1,5 @@
+<p>Hey <%= @user.handle %>,</p>
+
+<p>@<%=@tweet.user.handle %> just mentioned you in a tweet! Isn't that interesting?</p>
+
+<p><%= link_to "Take a look!", tweet_path(@tweet) %></p>
