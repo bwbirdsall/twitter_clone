@@ -1,0 +1,9 @@
+<h1>@<%= @user.handle %></h1>
+
+<ul>
+  <% @user.tweets.each do |tweet| %>
+    <li>@<%= tweet.user.handle %> tweeted: <%= tweet.content %></li>
+  <% end %>
+</ul>
+
+<%= link_to "Flee Back to Your PseudoTimeline", root_path, class: "btn btn-info" %>

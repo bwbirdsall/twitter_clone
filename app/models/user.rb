@@ -1,5 +1,8 @@
 class User < ActiveRecord::Base
   has_many :tweets
+  has_many :follows
+  has_many :followers, through: :follows, source: :follower
+
   validates :handle, format: { with: /\A\w+\z/,
     message: "only allows letters, numbers, and underscores" }
   after_create :send_signup_confirmation

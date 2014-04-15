@@ -2,7 +2,7 @@
 
 <ul>
   <% @tweets.each do |tweet| %>
-    <li>@<%= tweet.user.handle %> tweeted: <%= tweet.content %></li>
+    <li><%= link_to "@#{tweet.user.handle}", user_path(tweet.user) %> tweeted: <%= tweet.content %></li>
   <% end %>
 </ul>
 
