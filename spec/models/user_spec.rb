@@ -2,6 +2,9 @@ require 'spec_helper'
 
 describe User do
   it { should have_many :tweets }
+  it { should allow_value('Mac32_Mac').for(:handle) }
+  it { should_not allow_value('Mac32._Mac').for(:handle) }
+  it { should_not allow_value('Mac32 _Mac').for(:handle) }
 
   it 'sends a welcome email' do
     user = FactoryGirl.build(:user)

@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
   has_many :tweets
+  validates :handle, format: { with: /\A\w+\z/,
+    message: "only allows letters, numbers, and underscores" }
   after_create :send_signup_confirmation
 
   # Include default devise modules. Others available are:
