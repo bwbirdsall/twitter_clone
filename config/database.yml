@@ -1,0 +1,8 @@
+
+development:
+  adapter: postgresql
+  database: pseudotwitter_development
+
+test:
+  adapter: postgresql
+  database: pseudotwitter_test
