@@ -11,3 +11,16 @@
  *= require_self
  *= require_tree .
  */
+
+.pull-left {
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.pull-right {
+  font-size: 18px;
+}
+
+.content {
+  margin-top: 50px;
+}
