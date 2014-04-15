@@ -11,10 +11,10 @@ class User < ActiveRecord::Base
 
 
   def send_signup_confirmation
-    UserMailer.signup_confirmation(self)
+    UserMailer.signup_confirmation(self).deliver
   end
 
   def send_mention_email(tweeter)
-    UserMailer.mention_email(self, tweeter)
+    UserMailer.mention_email(self, tweeter).deliver
   end
 end

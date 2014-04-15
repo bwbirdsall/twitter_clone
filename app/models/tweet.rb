@@ -3,11 +3,13 @@ class Tweet < ActiveRecord::Base
   validates :content, presence: true
 
   def mentions
-    mentions = self.content.scan(/[\W\A]@(\w+)[\W$]/).flatten!
-    mentions.each do |mention|
-      user = User.find_by(handle: mention)
-      if user && user != self.user
-        user.send_mention_email(self)
+    mentions = self.content.scan(/(?<!\w)@(\w+)[\W$]/).flatten!
+    if mentions
+      mentions.each do |mention|
+        user = User.find_by(handle: mention)
+        if user && user != self.user
+          user.send_mention_email(self)
+        end
       end
     end
   end

@@ -12,6 +12,9 @@
  *= require_tree .
  */
 
+li {
+  list-style: none;
+}
 .pull-left {
   font-size: 30px;
   font-weight: 600;

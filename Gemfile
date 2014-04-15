@@ -12,6 +12,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'bootstrap-sass'
 gem 'devise'
 gem 'faker'
+gem 'launchy'
 
 group :development do
   gem 'better_errors'
