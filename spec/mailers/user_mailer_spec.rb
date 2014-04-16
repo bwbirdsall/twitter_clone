@@ -12,7 +12,7 @@ describe UserMailer do
     end
 
     it "renders the body" do
-      mail.body.encoded.should match("Hi")
+      mail.body.encoded.should match("<p>#{user.handle},</p>\r\n\r\n<p>Thank you for signing up.</p>\r\n\r\n<p><a href=\"http://localhost:3000/\">User Profile</a></p>")
     end
   end
 

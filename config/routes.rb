@@ -3,6 +3,7 @@ Pseudotwitter::Application.routes.draw do
 
   resources :tweets
   resources :users, only: :show
+  resources :follows, only: [ :create, :destroy ]
 
   root :to => "tweets#index"
 end

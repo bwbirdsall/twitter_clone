@@ -1,9 +1,26 @@
 <h1>@<%= @user.handle %></h1>
 
-<ul>
+<% if @user.followers.include?(current_user) %>
+  <%= form_for Follow.new do |f| %>
+    <div class="field form-group">
+      <%= f.hidden_field :user_id, value: @user.id %>
+    </div>
+
+    <div class="field form-group">
+      <%= f.hidden_field :follower_id, value: current_user.id %>
+    </div>
+
+    <%= f.submit "Follow this Fine (Gender-Neutral) Fellow!", class: "btn btn-success", method: 'post' %>
+  <% end %>
+<% else %>
+  <br><%= link_to "Unfollow this Cretin", follow_path(@user.follows.where(:follower_id => current_user.id).first), :id => @user.follows.where(:follower_id => current_user.id).first.id, :method => 'delete', class: 'btn btn-danger' %>
+<% end %>
+<br><ul>
   <% @user.tweets.each do |tweet| %>
     <li>@<%= tweet.user.handle %> tweeted: <%= tweet.content %></li>
   <% end %>
 </ul>
 
 <%= link_to "Flee Back to Your PseudoTimeline", root_path, class: "btn btn-info" %>
+
+
